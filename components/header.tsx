@@ -20,20 +20,13 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { Search, Menu, Globe } from 'lucide-react'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
-
 
 export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
-  const t = useTranslations('') // Use the translation hook
-  const { push } = useRouter()  // Router to navigate to the selected language
+  const { push } = useRouter()
 
-  function setLanguage(arg0: string): void {
-    throw new Error('Function not implemented.')
-  }
   const handleLanguageChange = (lang: string) => {
-    // Change the current language and navigate to the correct locale
     push(`/${lang}`)
   }
 
@@ -49,37 +42,30 @@ export function Header() {
 
           <NavigationMenu className="hidden md:flex">
             <NavigationMenuList>
+              {/* Digipedagogiikka Section */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger>{t('digipeda')}</NavigationMenuTrigger>
+                <NavigationMenuTrigger>Digipedagogiikka</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
                     <li className="row-span-3">
-                      <Link href="/digipeda/courses" className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
-                        <div className="mb-2 mt-4 text-lg font-medium">
-                          {t('courses')}
-                        </div>
-                        <p className="text-sm leading-tight text-muted-foreground">
-                          {t('coursesDescription')}
-                        </p>
+                      <Link href="#" className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
+                        <div className="mb-2 mt-4 text-lg font-medium">Kurssit</div>
+                        <p className="text-sm leading-tight text-muted-foreground">Opi digipedagogiikkaa ja työkaluja!</p>
                       </Link>
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
-                        <Link href="/digipeda/tools" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">{t('tools')}</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            {t('toolsDescription')}
-                          </p>
+                        <Link href="#" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Työkalut</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">Käytä digipedagogisia työkaluja</p>
                         </Link>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
-                        <Link href="/digipeda/support" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">{t('support')}</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            {t('supportDescription')}
-                          </p>
+                        <Link href="#" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Tuki</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">Tarvitsetko apua? Ota yhteyttä!</p>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -87,27 +73,32 @@ export function Header() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
+              {/* Kansainvälinen Section */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger>{t('international')}</NavigationMenuTrigger>
+                <NavigationMenuTrigger>Kansainvälinen</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
                     <li>
                       <NavigationMenuLink asChild>
-                        <Link href="/international/news" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">{t('news')}</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            {t('newsDescription')}
-                          </p>
+                        <Link href="/kansainvalinen" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Uutiset</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">Pysy ajan tasalla kansainvälisistä uutisista</p>
                         </Link>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
-                        <Link href="/international/mobility" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">{t('mobility')}</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            {t('mobilityDescription')}
-                          </p>
+                        <Link href="/kansainvalinen" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Liikkuvuus</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">Tutustu liikkuvuusohjelmiin</p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link href="/kansainvalinen" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Resurssit</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">Tutustu kansainvälisiin resursseihin</p>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -115,27 +106,24 @@ export function Header() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
+              {/* Resurssit Section */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger>{t('resources')}</NavigationMenuTrigger>
+                <NavigationMenuTrigger>Resurssit</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
                     <li>
                       <NavigationMenuLink asChild>
-                        <Link href="/resources/materials" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">{t('materials')}</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            {t('materialsDescription')}
-                          </p>
+                        <Link href="#" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Materiaalit</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">Lataa opetusmateriaalit</p>
                         </Link>
                       </NavigationMenuLink>
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
-                        <Link href="/resources/tools" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">{t('tools')}</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            {t('toolsDescription')}
-                          </p>
+                        <Link href="#" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <div className="text-sm font-medium leading-none">Työkalut</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">Tutustu hyödyllisiin työkaluihin</p>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -143,16 +131,16 @@ export function Header() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
+              {/* Yhteystiedot Section */}
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/contact">
-                    {t('contact')}
-                  </Link>
+                  <Link href="/contact">Yhteystiedot</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
 
+          {/* Other components (Search, DropdownMenu, Mobile Menu) */}
           <div className="flex items-center gap-4">
             <Button variant="ghost" size="icon" onClick={() => setIsSearchOpen(!isSearchOpen)}>
               <Search className="h-5 w-5" />
@@ -165,15 +153,9 @@ export function Header() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => handleLanguageChange('fi')}>
-                fi
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => handleLanguageChange('swe')}>
-                swe
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => handleLanguageChange('en')}>
-                en
-                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange('fi')}>fi</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange('swe')}>swe</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleLanguageChange('en')}>en</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
@@ -185,20 +167,12 @@ export function Header() {
               </SheetTrigger>
               <SheetContent>
                 <div className="grid gap-4">
-                  <h2 className="text-lg font-semibold">{t('menu')}</h2>
+                  <h2 className="text-lg font-semibold">Valikko</h2>
                   <nav className="grid gap-2">
-                    <Link href="/digipeda" className="hover:underline">
-                      {t('digipeda')}
-                    </Link>
-                    <Link href="/international" className="hover:underline">
-                      {t('international')}
-                    </Link>
-                    <Link href="/resources" className="hover:underline">
-                      {t('resources')}
-                    </Link>
-                    <Link href="/yhteystiedot" className="hover:underline">
-                      {t('contact')}
-                    </Link>
+                    <Link href="#" className="hover:underline">Digipedia</Link>
+                    <Link href="/kansainvalinen" className="hover:underline">Kansainvälinen</Link>
+                    <Link href="#" className="hover:underline">Resurssit</Link>
+                    <Link href="/contact" className="hover:underline">Yhteystiedot</Link>
                   </nav>
                 </div>
               </SheetContent>
@@ -209,11 +183,7 @@ export function Header() {
         {isSearchOpen && (
           <div className="border-t py-4">
             <div className="relative">
-              <input
-                type="search"
-                placeholder={t('searchPlaceholder')}
-                className="w-full rounded-md border px-4 py-2 pl-10"
-              />
+              <input type="search" placeholder="Hae" className="w-full rounded-md border px-4 py-2 pl-10" />
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-gray-400" />
             </div>
           </div>

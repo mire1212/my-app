@@ -1,50 +1,49 @@
 'use client'
 
 import { useState } from 'react'
-import { useTranslations } from 'next-intl'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function ContactPage() {
-  const t = useTranslations('contact') // Using 'contact' namespace for translations
   const [selectedSupport, setSelectedSupport] = useState<"digiapu" | "kansainvaliset" | "muut" | null>(null);
 
+  // Static content from the JSON you provided
   const supportTypes = {
-    digiapu: t('supportTypes.digiapu'),
-    kansainvaliset: t('supportTypes.kansainvaliset'),
-    muut: t('supportTypes.muut'),
+    digiapu: "Digipeda", // Static content from the provided JSON
+    kansainvaliset: "Kansainvälinen", 
+    muut: "Muut",
   };
 
   const contactInfo = {
     digiapu: {
-      title: t('contactInfo.digiapu.title'),
-      description: t('contactInfo.digiapu.description'),
-      email: t('contactInfo.digiapu.email'),
-      phone: t('contactInfo.digiapu.phone'),
+      title: "Digipeda", // Static content
+      description: "Saat apua digitaalisten työkalujen käyttöön", // Static content
+      email: "digipeda@hel.fi", // Static content
+      phone: "p. 09 310 1691", // Static content
     },
     kansainvaliset: {
-      title: t('contactInfo.kansainvaliset.title'),
-      description: t('contactInfo.kansainvaliset.description'),
-      email: t('contactInfo.kansainvaliset.email'),
-      phone: t('contactInfo.kansainvaliset.phone'),
+      title: "Kansainväliset ohjelmat", // Static content
+      description: "Tuki kansainvälisiin ohjelmiin", // Static content
+      email: "international@hel.fi", // Static content
+      phone: "p. 09 310 1680", // Static content
     },
     muut: {
-      title: t('contactInfo.muut.title'),
-      description: t('contactInfo.muut.description'),
-      email: t('contactInfo.muut.email'),
-      phone: t('contactInfo.muut.phone'),
+      title: "Muut yhteystiedot", // Static content
+      description: "Muuta tukea ja yhteystietoja", // Static content
+      email: "support@hel.fi", // Static content
+      phone: "p. 09 310 1700", // Static content
     },
   };
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="mb-6 text-3xl font-bold">{t('title')}</h1>
+      <h1 className="mb-6 text-3xl font-bold">Yhteystiedot</h1> {/* Static title */}
       <div className="flex flex-col md:flex-row gap-8">
         <div className="w-full md:w-1/3">
           <Card>
             <CardHeader>
-              <CardTitle>{t('title')}</CardTitle>
-              <CardDescription>{t('description')}</CardDescription>
+              <CardTitle>Yhteystiedot</CardTitle> {/* Static header */}
+              <CardDescription>Valitse haluamasi tukimuoto</CardDescription> {/* Static description */}
             </CardHeader>
             <CardContent>
               <div className="space-y-2">
@@ -55,7 +54,7 @@ export default function ContactPage() {
                     className="w-full justify-start"
                     onClick={() => setSelectedSupport(key as "digiapu" | "kansainvaliset" | "muut")}
                   >
-                    {supportTypes[key as "digiapu" | "kansainvaliset" | "muut"]}
+                    {supportTypes[key as "digiapu" | "kansainvaliset" | "muut"]} {/* Static button label */}
                   </Button>
                 ))}
               </div>
@@ -70,8 +69,8 @@ export default function ContactPage() {
                 <CardDescription>{contactInfo[selectedSupport].description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <p><strong>{t('email')}:</strong> {contactInfo[selectedSupport].email}</p>
-                <p><strong>{t('phone')}:</strong> {contactInfo[selectedSupport].phone}</p>
+                <p><strong>Sähköposti:</strong> {contactInfo[selectedSupport].email}</p>
+                <p><strong>Puhelin:</strong> {contactInfo[selectedSupport].phone}</p>
               </CardContent>
             </Card>
           )}
