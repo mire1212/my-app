@@ -19,7 +19,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { Search, Menu, Globe } from 'lucide-react'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { useLanguage } from '@/contexts/LanguageContext'
+import { useLanguage } from '@/components/LanguageContext'
 
 export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
@@ -172,11 +172,11 @@ export function Header() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href="/yhteystiedot" legacyBehavior passHref>
-                  <NavigationMenuLink>
+                <NavigationMenuLink asChild>
+                  <Link href="/yhteystiedot">
                     {language === 'fi' ? 'Yhteystiedot' : language === 'sv' ? 'Kontaktuppgifter' : 'Contact'}
-                  </NavigationMenuLink>
-                </Link>
+                  </Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>

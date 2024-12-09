@@ -1,101 +1,177 @@
-import Image from "next/image";
+'use client'
+
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Calendar, Globe, MonitorPlay, Users } from 'lucide-react'
+import { useLanguage } from '@/components/LanguageContext'
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const { language } = useLanguage()
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const content = {
+    fi: {
+      title: 'Helsingin koulutusalusta',
+      description: 'Yhtenäinen portaali digitaaliseen pedagogiikkaan, kansainvälisiin ohjelmiin ja opetusresursseihin',
+      featured: 'Esillä',
+      courses: 'Kurssit',
+      resources: 'Resurssit',
+      digitalTools: 'Digitaaliset työkalut',
+      exploreTools: 'Tutustu työkaluihin',
+      internationalPrograms: 'Kansainväliset ohjelmat',
+      viewPrograms: 'Katso ohjelmat',
+      upcomingEvents: 'Tulevat tapahtumat',
+      seeCalendar: 'Katso kalenteri',
+    },
+    sv: {
+      title: 'Helsingfors utbildningsplattform',
+      description: 'Din enhetliga portal för digital pedagogik, internationella program och utbildningsresurser',
+      featured: 'Utvalda',
+      courses: 'Kurser',
+      resources: 'Resurser',
+      digitalTools: 'Digitala verktyg',
+      exploreTools: 'Utforska verktyg',
+      internationalPrograms: 'Internationella program',
+      viewPrograms: 'Visa program',
+      upcomingEvents: 'Kommande evenemang',
+      seeCalendar: 'Se kalender',
+    },
+    en: {
+      title: 'Helsinki Education Platform',
+      description: 'Your unified gateway to digital pedagogy, international programs, and educational resources',
+      featured: 'Featured',
+      courses: 'Courses',
+      resources: 'Resources',
+      digitalTools: 'Digital Tools',
+      exploreTools: 'Explore Tools',
+      internationalPrograms: 'International Programs',
+      viewPrograms: 'View Programs',
+      upcomingEvents: 'Upcoming Events',
+      seeCalendar: 'See Calendar',
+    },
+  }
+
+  const currentContent = content[language]
+
+  return (
+    <div className="flex flex-col">
+      <section className="bg-gradient-to-b from-blue-50 to-white py-20">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-3xl text-center">
+            <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl">
+              {currentContent.title}
+            </h1>
+            <p className="text-lg text-gray-600">
+              {currentContent.description}
+            </p>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <Tabs defaultValue="featured" className="mx-auto max-w-4xl">
+            <TabsList className="grid w-full grid-cols-3">
+              <TabsTrigger value="featured">{currentContent.featured}</TabsTrigger>
+              <TabsTrigger value="courses">{currentContent.courses}</TabsTrigger>
+              <TabsTrigger value="resources">{currentContent.resources}</TabsTrigger>
+            </TabsList>
+            <TabsContent value="featured">
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <Card>
+                  <CardHeader>
+                    <MonitorPlay className="h-8 w-8 text-blue-500" />
+                    <CardTitle className="mt-4">{currentContent.digitalTools}</CardTitle>
+                    <CardDescription>
+                      Access our comprehensive collection of educational tools
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Button className="w-full">{currentContent.exploreTools}</Button>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader>
+                    <Globe className="h-8 w-8 text-green-500" />
+                    <CardTitle className="mt-4">{currentContent.internationalPrograms}</CardTitle>
+                    <CardDescription>
+                      Discover international mobility opportunities
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Button className="w-full">{currentContent.viewPrograms}</Button>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader>
+                    <Calendar className="h-8 w-8 text-purple-500" />
+                    <CardTitle className="mt-4">{currentContent.upcomingEvents}</CardTitle>
+                    <CardDescription>
+                      Stay updated with educational events and workshops
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Button className="w-full">{currentContent.seeCalendar}</Button>
+                  </CardContent>
+                </Card>
+              </div>
+            </TabsContent>
+            <TabsContent value="courses">
+              <div className="grid gap-6 md:grid-cols-2">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Digital Pedagogy Basics</CardTitle>
+                    <CardDescription>
+                      Learn the fundamentals of digital teaching methods
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Button className="w-full">Start Course</Button>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Advanced Educational Tools</CardTitle>
+                    <CardDescription>
+                      Master the latest educational technology
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Button className="w-full">Start Course</Button>
+                  </CardContent>
+                </Card>
+              </div>
+            </TabsContent>
+            <TabsContent value="resources">
+              <div className="grid gap-6 md:grid-cols-2">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Teaching Materials</CardTitle>
+                    <CardDescription>
+                      Access our library of educational resources
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Button className="w-full">Browse Materials</Button>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Support Documents</CardTitle>
+                    <CardDescription>
+                      Find guides and documentation for tools
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Button className="w-full">View Docs</Button>
+                  </CardContent>
+                </Card>
+              </div>
+            </TabsContent>
+          </Tabs>
+        </div>
+      </section>
     </div>
-  );
+  )
 }
+
