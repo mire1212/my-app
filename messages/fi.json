@@ -1,0 +1,41 @@
+{
+    "contact": "Yhteystiedot",
+    "city": "© Helsingin kaupunki",
+    "phone": "p. 09 310 1691",
+    "website": "www.hel.fi",
+    "quickLinks": "Pikalinkit",
+    "aboutService": "Tietoa palvelusta",
+    "feedback": "Anna palautetta",
+    "support": "Tuki",
+    "information": "Tietoa",
+    "privacy": "Tietosuojaseloste",
+    "accessibility": "Saavutettavuus",
+    "terms": "Käyttöehdot",
+    "menu": {
+      "digipeda": "Digipeda",
+      "courses": "Kurssit",
+      "tools": "Työkalut",
+      "support": "Tuki",
+      "supportDescription": "Saat apua digitaalisten työkalujen käyttöön",
+      "international": "Kansainvälinen",
+      "news": "Uutiset",
+      "mobility": "Liikkuvuus",
+      "resources": "Resurssit",
+      "materials": "Materiaalit",
+      "contact": "Yhteystiedot"
+    },
+    "page": {
+      "title": "Helsingin koulutusalusta",
+      "description": "Yhtenäinen portaali digitaaliseen pedagogiikkaan, kansainvälisiin ohjelmiin ja opetusresursseihin",
+      "featured": "Esillä",
+      "courses": "Kurssit",
+      "resources": "Resurssit",
+      "digitalTools": "Digitaaliset työkalut",
+      "exploreTools": "Tutustu työkaluihin",
+      "internationalPrograms": "Kansainväliset ohjelmat",
+      "viewPrograms": "Katso ohjelmat",
+      "upcomingEvents": "Tulevat tapahtumat",
+      "seeCalendar": "Katso kalenteri"
+    }
+}
+  

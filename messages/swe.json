@@ -1,0 +1,41 @@
+{
+    "contact": "Kontakt",
+    "city": "© Helsingfors stad",
+    "phone": "tfn 09 310 1691",
+    "website": "www.hel.fi",
+    "quickLinks": "Snabblänkar",
+    "aboutService": "Om tjänsten",
+    "feedback": "Ge respons",
+    "support": "Support",
+    "information": "Information",
+    "privacy": "Dataskyddsbeskrivning",
+    "accessibility": "Tillgänglighet",
+    "terms": "Användarvillkor",
+    "menu": {
+      "digipeda": "Digipeda",
+      "courses": "Kurser",
+      "tools": "Verktyg",
+      "support": "Support",
+      "supportDescription": "Få hjälp med digitala verktyg",
+      "international": "Internationell",
+      "news": "Nyheter",
+      "mobility": "Mobilitet",
+      "resources": "Resurser",
+      "materials": "Material",
+      "contact": "Kontaktuppgifter"
+    },
+    "page": {
+      "title": "Helsingfors utbildningsplattform",
+      "description": "Din enhetliga portal för digital pedagogik, internationella program och utbildningsresurser",
+      "featured": "Utvalda",
+      "courses": "Kurser",
+      "resources": "Resurser",
+      "digitalTools": "Digitala verktyg",
+      "exploreTools": "Utforska verktyg",
+      "internationalPrograms": "Internationella program",
+      "viewPrograms": "Visa program",
+      "upcomingEvents": "Kommande evenemang",
+      "seeCalendar": "Se kalender"
+    }
+}
+  

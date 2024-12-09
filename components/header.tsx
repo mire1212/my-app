@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
+
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -19,52 +20,22 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { Search, Menu, Globe } from 'lucide-react'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { useLanguage } from '@/components/LanguageContext'
+import { useTranslations } from 'next-intl'
+import { useRouter } from 'next/navigation'
+
 
 export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
-  const { language, setLanguage } = useLanguage()
+  const t = useTranslations('') // Use the translation hook
+  const { push } = useRouter()  // Router to navigate to the selected language
 
-  const menuItems = {
-    fi: {
-      digipeda: 'Digipeda',
-      courses: 'Kurssit',
-      tools: 'Työkalut',
-      support: 'Tuki',
-      international: 'Kansainvälinen',
-      news: 'Uutiset',
-      mobility: 'Liikkuvuus',
-      resources: 'Resurssit',
-      materials: 'Materiaalit',
-      contact: 'Yhteystiedot',
-    },
-    sv: {
-      digipeda: 'Digipeda',
-      courses: 'Kurser',
-      tools: 'Verktyg',
-      support: 'Support',
-      international: 'Internationell',
-      news: 'Nyheter',
-      mobility: 'Mobilitet',
-      resources: 'Resurser',
-      materials: 'Material',
-      contact: 'Kontaktuppgifter',
-    },
-    en: {
-      digipeda: 'Digipeda',
-      courses: 'Courses',
-      tools: 'Tools',
-      support: 'Support',
-      international: 'International',
-      news: 'News',
-      mobility: 'Mobility',
-      resources: 'Resources',
-      materials: 'Materials',
-      contact: 'Contact',
-    },
+  function setLanguage(arg0: string): void {
+    throw new Error('Function not implemented.')
   }
-
-  const currentMenuItems = menuItems[language]
+  const handleLanguageChange = (lang: string) => {
+    // Change the current language and navigate to the correct locale
+    push(`/${lang}`)
+  }
 
   return (
     <header className="border-b bg-white">
@@ -79,25 +50,25 @@ export function Header() {
           <NavigationMenu className="hidden md:flex">
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>{currentMenuItems.digipeda}</NavigationMenuTrigger>
+                <NavigationMenuTrigger>{t('digipeda')}</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
                     <li className="row-span-3">
                       <Link href="/digipeda/courses" className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
                         <div className="mb-2 mt-4 text-lg font-medium">
-                          {currentMenuItems.courses}
+                          {t('courses')}
                         </div>
                         <p className="text-sm leading-tight text-muted-foreground">
-                          Access all digital pedagogy courses and materials
+                          {t('coursesDescription')}
                         </p>
                       </Link>
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
                         <Link href="/digipeda/tools" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">{currentMenuItems.tools}</div>
+                          <div className="text-sm font-medium leading-none">{t('tools')}</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Educational tools and resources
+                            {t('toolsDescription')}
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -105,9 +76,9 @@ export function Header() {
                     <li>
                       <NavigationMenuLink asChild>
                         <Link href="/digipeda/support" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">{currentMenuItems.support}</div>
+                          <div className="text-sm font-medium leading-none">{t('support')}</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Get help with digital tools
+                            {t('supportDescription')}
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -117,15 +88,15 @@ export function Header() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>{currentMenuItems.international}</NavigationMenuTrigger>
+                <NavigationMenuTrigger>{t('international')}</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
                     <li>
                       <NavigationMenuLink asChild>
                         <Link href="/international/news" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">{currentMenuItems.news}</div>
+                          <div className="text-sm font-medium leading-none">{t('news')}</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Latest international updates
+                            {t('newsDescription')}
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -133,9 +104,9 @@ export function Header() {
                     <li>
                       <NavigationMenuLink asChild>
                         <Link href="/international/mobility" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">{currentMenuItems.mobility}</div>
+                          <div className="text-sm font-medium leading-none">{t('mobility')}</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            International mobility programs
+                            {t('mobilityDescription')}
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -145,15 +116,15 @@ export function Header() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>{currentMenuItems.resources}</NavigationMenuTrigger>
+                <NavigationMenuTrigger>{t('resources')}</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
                     <li>
                       <NavigationMenuLink asChild>
                         <Link href="/resources/materials" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">{currentMenuItems.materials}</div>
+                          <div className="text-sm font-medium leading-none">{t('materials')}</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Educational resources and materials
+                            {t('materialsDescription')}
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -161,9 +132,9 @@ export function Header() {
                     <li>
                       <NavigationMenuLink asChild>
                         <Link href="/resources/tools" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                          <div className="text-sm font-medium leading-none">{currentMenuItems.tools}</div>
+                          <div className="text-sm font-medium leading-none">{t('tools')}</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Educational tools and software
+                            {t('toolsDescription')}
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -171,10 +142,11 @@ export function Header() {
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
+
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link href="/yhteystiedot">
-                    {language === 'fi' ? 'Yhteystiedot' : language === 'sv' ? 'Kontaktuppgifter' : 'Contact'}
+                  <Link href="/contact">
+                    {t('contact')}
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -182,11 +154,7 @@ export function Header() {
           </NavigationMenu>
 
           <div className="flex items-center gap-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsSearchOpen(!isSearchOpen)}
-            >
+            <Button variant="ghost" size="icon" onClick={() => setIsSearchOpen(!isSearchOpen)}>
               <Search className="h-5 w-5" />
             </Button>
 
@@ -197,14 +165,14 @@ export function Header() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setLanguage('fi')}>
-                  Suomi
+                <DropdownMenuItem onClick={() => handleLanguageChange('fi')}>
+                fi
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage('sv')}>
-                  Svenska
+                <DropdownMenuItem onClick={() => handleLanguageChange('swe')}>
+                swe
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage('en')}>
-                  English
+                <DropdownMenuItem onClick={() => handleLanguageChange('en')}>
+                en
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -217,19 +185,19 @@ export function Header() {
               </SheetTrigger>
               <SheetContent>
                 <div className="grid gap-4">
-                  <h2 className="text-lg font-semibold">Menu</h2>
+                  <h2 className="text-lg font-semibold">{t('menu')}</h2>
                   <nav className="grid gap-2">
                     <Link href="/digipeda" className="hover:underline">
-                      {currentMenuItems.digipeda}
+                      {t('digipeda')}
                     </Link>
                     <Link href="/international" className="hover:underline">
-                      {currentMenuItems.international}
+                      {t('international')}
                     </Link>
                     <Link href="/resources" className="hover:underline">
-                      {currentMenuItems.resources}
+                      {t('resources')}
                     </Link>
                     <Link href="/yhteystiedot" className="hover:underline">
-                      {language === 'fi' ? 'Yhteystiedot' : language === 'sv' ? 'Kontaktuppgifter' : 'Contact'}
+                      {t('contact')}
                     </Link>
                   </nav>
                 </div>
@@ -243,7 +211,7 @@ export function Header() {
             <div className="relative">
               <input
                 type="search"
-                placeholder="Search..."
+                placeholder={t('searchPlaceholder')}
                 className="w-full rounded-md border px-4 py-2 pl-10"
               />
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-gray-400" />
@@ -254,4 +222,3 @@ export function Header() {
     </header>
   )
 }
-
