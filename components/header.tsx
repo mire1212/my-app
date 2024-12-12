@@ -142,16 +142,9 @@ export function Header() {
 
           {/* Other components (Search, DropdownMenu, Mobile Menu) */}
           <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" onClick={() => setIsSearchOpen(!isSearchOpen)}>
-              <Search className="h-5 w-5" />
-            </Button>
+
 
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <Globe className="h-5 w-5" />
-                </Button>
-              </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuItem onClick={() => handleLanguageChange('fi')}>fi</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => handleLanguageChange('swe')}>swe</DropdownMenuItem>
@@ -169,9 +162,9 @@ export function Header() {
                 <div className="grid gap-4">
                   <h2 className="text-lg font-semibold">Valikko</h2>
                   <nav className="grid gap-2">
-                    <Link href="#" className="hover:underline">Digipedia</Link>
+                    <Link href="/digipeda" className="hover:underline">Digipedia</Link>
                     <Link href="/kansainvalinen" className="hover:underline">Kansainvälinen</Link>
-                    <Link href="#" className="hover:underline">Resurssit</Link>
+                    <Link href="/resurssit" className="hover:underline">Resurssit</Link>
                     <Link href="/contact" className="hover:underline">Yhteystiedot</Link>
                   </nav>
                 </div>

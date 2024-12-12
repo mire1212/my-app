@@ -2,30 +2,30 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
-export default function InternationalPage() {
+export default function ResourcesPage() {
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="mb-6 text-3xl font-bold">International</h1>
+      <h1 className="mb-6 text-3xl font-bold">Resources</h1>
       <div className="grid gap-6 md:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>News</CardTitle>
-            <CardDescription>Latest international updates</CardDescription>
+            <CardTitle>Materials</CardTitle>
+            <CardDescription>Educational resources and materials</CardDescription>
           </CardHeader>
           <CardContent>
             <Button asChild className="w-full">
-              <Link href="/international/news">Read News</Link>
+              <Link href="/resources/materials">Browse Materials</Link>
             </Button>
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>Mobility</CardTitle>
-            <CardDescription>International mobility programs</CardDescription>
+            <CardTitle>Tools</CardTitle>
+            <CardDescription>Educational tools and software</CardDescription>
           </CardHeader>
           <CardContent>
             <Button asChild className="w-full">
-              <Link href="/international/mobility">Explore Programs</Link>
+              <Link href="/resources/tools">Explore Tools</Link>
             </Button>
           </CardContent>
         </Card>

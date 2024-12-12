@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Calendar, Globe, MonitorPlay, Users } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Home() {
 
@@ -30,7 +31,6 @@ export default function Home() {
               <TabsTrigger value="featured">Tärkeää</TabsTrigger>
               <TabsTrigger value="courses">Kurssit</TabsTrigger>
               <TabsTrigger value="resources">Materiaalit</TabsTrigger>
-              <TabsTrigger value="events">Tapahtumat</TabsTrigger>
             </TabsList>
 
             <TabsContent value="featured">
@@ -38,13 +38,15 @@ export default function Home() {
                 <Card>
                   <CardHeader>
                     <MonitorPlay className="h-6 w-6 text-gray-500" />
-                    <CardTitle className="mt-4">Digitaalinen pedagogiikka</CardTitle>
+                    <CardTitle className="mt-4">Digipedia</CardTitle>
                     <CardDescription>
                       Uudet työkalut ja menetelmät opettamiseen
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <Button className="w-full">Tutustu lisää</Button>
+                    <Link href="/digipeda" className="hover:underline">
+                      <Button className="w-full">Tutustu lisää</Button>
+                    </Link>
                   </CardContent>
                 </Card>
                 <Card>
@@ -56,7 +58,9 @@ export default function Home() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <Button className="w-full">Näe ohjelmat</Button>
+                  <Link href="/kansainvalinen" className="hover:underline">
+                      <Button className="w-full">Tutustu lisää</Button>
+                    </Link>
                   </CardContent>
                 </Card>
                 <Card>

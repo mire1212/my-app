@@ -1,81 +1,155 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
-export default function ContactPage() {
-  const [selectedSupport, setSelectedSupport] = useState<"digiapu" | "kansainvaliset" | "muut" | null>(null);
+type SupportPerson = {
+  name: string
+  role: string
+  email: string
+  phone: string
+  image: string
+}
 
-  // Static content from the JSON you provided
-  const supportTypes = {
-    digiapu: "Digipeda", // Static content from the provided JSON
-    kansainvaliset: "Kansainvälinen", 
-    muut: "Muut",
-  };
+type SupportCategory = {
+  id: string
+  name: string
+  description: string
+  people: SupportPerson[]
+}
 
-  const contactInfo = {
-    digiapu: {
-      title: "Digipeda", // Static content
-      description: "Saat apua digitaalisten työkalujen käyttöön", // Static content
-      email: "digipeda@hel.fi", // Static content
-      phone: "p. 09 310 1691", // Static content
-    },
-    kansainvaliset: {
-      title: "Kansainväliset ohjelmat", // Static content
-      description: "Tuki kansainvälisiin ohjelmiin", // Static content
-      email: "international@hel.fi", // Static content
-      phone: "p. 09 310 1680", // Static content
-    },
-    muut: {
-      title: "Muut yhteystiedot", // Static content
-      description: "Muuta tukea ja yhteystietoja", // Static content
-      email: "support@hel.fi", // Static content
-      phone: "p. 09 310 1700", // Static content
-    },
-  };
+const supportCategories: SupportCategory[] = [
+  {
+    id: 'digiapu',
+    name: 'Digiapu',
+    description: 'Tukea digitaalisiin työkaluihin ja palveluihin',
+    people: [
+      {
+        name: 'Matti Meikäläinen',
+        role: 'Digitaalinen pedagogi',
+        email: 'matti.meikalainen@helsinki.fi',
+        phone: '+358 50 123 4567',
+        image: '/placeholder.svg?height=100&width=100'
+      },
+      {
+        name: 'Liisa Lahtinen',
+        role: 'IT-tukihenkilö',
+        email: 'liisa.lahtinen@helsinki.fi',
+        phone: '+358 50 987 6543',
+        image: '/placeholder.svg?height=100&width=100'
+      }
+    ]
+  },
+  {
+    id: 'kv-tiimi',
+    name: 'KV-tiimi',
+    description: 'Tukea kansainvälisiin opintoihin liittyvissä asioissa',
+    people: [
+      {
+        name: 'Anna Virtanen',
+        role: 'Kansainvälisten asioiden koordinaattori',
+        email: 'anna.virtanen@helsinki.fi',
+        phone: '+358 50 246 8135',
+        image: '/placeholder.svg?height=100&width=100'
+      },
+      {
+        name: 'Mikko Mäkinen',
+        role: 'Vaihto-opiskelijakoordinaattori',
+        email: 'mikko.makinen@helsinki.fi',
+        phone: '+358 50 753 9514',
+        image: '/placeholder.svg?height=100&width=100'
+      }
+    ]
+  },
+  {
+    id: 'muut',
+    name: 'Muut palvelut',
+    description: 'Yleinen tuki ja neuvonta',
+    people: [
+      {
+        name: 'Sari Salminen',
+        role: 'Opintoneuvoja',
+        email: 'sari.salminen@helsinki.fi',
+        phone: '+358 50 369 2580',
+        image: '/placeholder.svg?height=100&width=100'
+      },
+      {
+        name: 'Juha Järvinen',
+        role: 'Opiskelijapalveluiden koordinaattori',
+        email: 'juha.jarvinen@helsinki.fi',
+        phone: '+358 50 147 2583',
+        image: '/placeholder.svg?height=100&width=100'
+      }
+    ]
+  }
+]
+
+export default function YhteystiedotPage() {
+  const [selectedCategory, setSelectedCategory] = useState<string>(supportCategories[0].id)
+
+  const currentCategory = supportCategories.find(category => category.id === selectedCategory)
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="mb-6 text-3xl font-bold">Yhteystiedot</h1> {/* Static title */}
+      <h1 className="mb-6 text-3xl font-bold">Yhteystiedot</h1>
       <div className="flex flex-col md:flex-row gap-8">
-        <div className="w-full md:w-1/3">
+        <div className="w-full md:w-1/4">
           <Card>
             <CardHeader>
-              <CardTitle>Yhteystiedot</CardTitle> {/* Static header */}
-              <CardDescription>Valitse haluamasi tukimuoto</CardDescription> {/* Static description */}
+              <CardTitle>Tukipalvelut</CardTitle>
+              <CardDescription>Valitse tukipalvelu nähdäksesi yhteystiedot</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-2">
-                {Object.keys(supportTypes).map((key) => (
+                {supportCategories.map((category) => (
                   <Button
-                    key={key}
-                    variant={selectedSupport === key ? "default" : "outline"}
+                    key={category.id}
+                    variant={selectedCategory === category.id ? "default" : "outline"}
                     className="w-full justify-start"
-                    onClick={() => setSelectedSupport(key as "digiapu" | "kansainvaliset" | "muut")}
+                    onClick={() => setSelectedCategory(category.id)}
                   >
-                    {supportTypes[key as "digiapu" | "kansainvaliset" | "muut"]} {/* Static button label */}
+                    {category.name}
                   </Button>
                 ))}
               </div>
             </CardContent>
           </Card>
         </div>
-        <div className="w-full md:w-2/3">
-          {selectedSupport && (
-            <Card>
-              <CardHeader>
-                <CardTitle>{contactInfo[selectedSupport].title}</CardTitle>
-                <CardDescription>{contactInfo[selectedSupport].description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p><strong>Sähköposti:</strong> {contactInfo[selectedSupport].email}</p>
-                <p><strong>Puhelin:</strong> {contactInfo[selectedSupport].phone}</p>
-              </CardContent>
-            </Card>
+        <div className="w-full md:w-3/4">
+          {currentCategory && (
+            <div>
+              <h2 className="text-2xl font-semibold mb-4">{currentCategory.name}</h2>
+              <p className="mb-6 text-gray-600">{currentCategory.description}</p>
+              <div className="grid gap-6 md:grid-cols-2">
+                {currentCategory.people.map((person) => (
+                  <Card key={person.email}>
+                    <CardHeader className="flex flex-row items-center gap-4">
+                      <Image
+                        src={person.image}
+                        alt={person.name}
+                        width={60}
+                        height={60}
+                        className="rounded-full"
+                      />
+                      <div>
+                        <CardTitle>{person.name}</CardTitle>
+                        <CardDescription>{person.role}</CardDescription>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p><strong>Sähköposti:</strong> {person.email}</p>
+                      <p><strong>Puhelin:</strong> {person.phone}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
           )}
         </div>
       </div>
     </div>
   )
 }
+
