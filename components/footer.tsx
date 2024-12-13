@@ -17,17 +17,17 @@ export function Footer() {
             <h3 className="mb-4 text-sm font-semibold">Pikalinkit</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/about" className="text-gray-600 hover:text-gray-900">
+                <a href="#" className="text-gray-600 hover:text-gray-900">
                   Tietoa palvelusta
                 </a>
               </li>
               <li>
-                <a href="/feedback" className="text-gray-600 hover:text-gray-900">
+                <a href="#" className="text-gray-600 hover:text-gray-900">
                   Anna palautetta
                 </a>
               </li>
               <li>
-                <a href="/support" className="text-gray-600 hover:text-gray-900">
+                <a href="#" className="text-gray-600 hover:text-gray-900">
                   Tuki
                 </a>
               </li>
@@ -37,17 +37,17 @@ export function Footer() {
             <h3 className="mb-4 text-sm font-semibold">Tietoa</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/privacy" className="text-gray-600 hover:text-gray-900">
+                <a href="#" className="text-gray-600 hover:text-gray-900">
                   Tietosuojaseloste
                 </a>
               </li>
               <li>
-                <a href="/accessibility" className="text-gray-600 hover:text-gray-900">
+                <a href="#" className="text-gray-600 hover:text-gray-900">
                   Saavutettavuus
                 </a>
               </li>
               <li>
-                <a href="/terms" className="text-gray-600 hover:text-gray-900">
+                <a href="#" className="text-gray-600 hover:text-gray-900">
                   Käyttöehdot
                 </a>
               </li>
