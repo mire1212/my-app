@@ -5,30 +5,53 @@ import Link from "next/link"
 export default function ResourcesPage() {
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="mb-6 text-3xl font-bold">Resources</h1>
+      <h1 className="mb-6 text-3xl font-bold">Resurssit</h1>
       <div className="grid gap-6 md:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>Materials</CardTitle>
-            <CardDescription>Educational resources and materials</CardDescription>
+            <CardTitle>Materiaalit</CardTitle>
+            <CardDescription>Opetusmateriaalit ja resurssit</CardDescription>
           </CardHeader>
           <CardContent>
             <Button asChild className="w-full">
-              <Link href="/resources/materials">Browse Materials</Link>
+              <Link href="#">Selaa materiaaleja</Link>
             </Button>
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>Tools</CardTitle>
-            <CardDescription>Educational tools and software</CardDescription>
+            <CardTitle>Työkalut</CardTitle>
+            <CardDescription>Opetustyökalut ja ohjelmistot</CardDescription>
           </CardHeader>
           <CardContent>
             <Button asChild className="w-full">
-              <Link href="/resources/tools">Explore Tools</Link>
+              <Link href="#">Tutustu työkaluihin</Link>
             </Button>
           </CardContent>
         </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Ohjelmat</CardTitle>
+            <CardDescription>Käytännön harjoitusohjelmat ja sovellukset</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Button asChild className="w-full">
+              <Link href="#">Tutustu ohjelmiin</Link>
+            </Button>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Oppimistuki</CardTitle>
+            <CardDescription>Ohjaus ja mentorointiresurssit</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Button asChild className="w-full">
+              <Link href="#">Hanki tukea</Link>
+            </Button>
+          </CardContent>
+        </Card>
+
       </div>
     </div>
   )
