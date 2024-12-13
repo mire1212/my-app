@@ -9,23 +9,34 @@ export default function InternationalPage() {
       <div className="grid gap-6 md:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>News</CardTitle>
-            <CardDescription>Latest international updates</CardDescription>
+            <CardTitle>Uutiset</CardTitle>
+            <CardDescription>Viimeisimmät kansainväliset päivitykset</CardDescription>
           </CardHeader>
           <CardContent>
             <Button asChild className="w-full">
-              <Link href="/international/news">Read News</Link>
+              <Link href="#">Lue uutiset</Link>
             </Button>
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>Mobility</CardTitle>
-            <CardDescription>International mobility programs</CardDescription>
+            <CardTitle>Liikkuvuus</CardTitle>
+            <CardDescription>Kansainväliset liikkuvuusohjelmat</CardDescription>
           </CardHeader>
           <CardContent>
             <Button asChild className="w-full">
-              <Link href="/international/mobility">Explore Programs</Link>
+              <Link href="#">Tutustu ohjelmiin</Link>
+            </Button>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>ERASMUS</CardTitle>
+            <CardDescription>Kansainväliset opiskelija- ja henkilöstövaihto-ohjelmat</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Button asChild className="w-full">
+              <Link href="#">Tutustu ERASMUS-ohjelmaan</Link>
             </Button>
           </CardContent>
         </Card>

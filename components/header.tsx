@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,12 +11,6 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
 import { Search, Menu, Globe } from 'lucide-react'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { useRouter } from 'next/navigation'
@@ -26,9 +19,6 @@ export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const { push } = useRouter()
 
-  const handleLanguageChange = (lang: string) => {
-    push(`/${lang}`)
-  }
 
   return (
     <header className="border-b bg-white">
@@ -80,7 +70,7 @@ export function Header() {
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
                     <li>
                       <NavigationMenuLink asChild>
-                        <Link href="/kansainvalinen" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <Link href="#" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                           <div className="text-sm font-medium leading-none">Uutiset</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">Pysy ajan tasalla kansainvälisistä uutisista</p>
                         </Link>
@@ -88,7 +78,7 @@ export function Header() {
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
-                        <Link href="/kansainvalinen" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <Link href="#" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                           <div className="text-sm font-medium leading-none">Liikkuvuus</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">Tutustu liikkuvuusohjelmiin</p>
                         </Link>
@@ -96,7 +86,7 @@ export function Header() {
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
-                        <Link href="/kansainvalinen" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <Link href="#" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                           <div className="text-sm font-medium leading-none">Resurssit</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">Tutustu kansainvälisiin resursseihin</p>
                         </Link>
@@ -144,13 +134,6 @@ export function Header() {
           <div className="flex items-center gap-4">
 
 
-            <DropdownMenu>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => handleLanguageChange('fi')}>fi</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => handleLanguageChange('swe')}>swe</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => handleLanguageChange('en')}>en</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
 
             <Sheet>
               <SheetTrigger asChild>

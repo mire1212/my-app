@@ -9,34 +9,34 @@ export default function DigipedaPage() {
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <Card>
           <CardHeader>
-            <CardTitle>Courses</CardTitle>
-            <CardDescription>Access all digital pedagogy courses and materials</CardDescription>
+            <CardTitle>Kurssit</CardTitle>
+            <CardDescription>Pääsy kaikkiin digipedagogiikan kursseihin ja materiaaleihin</CardDescription>
           </CardHeader>
           <CardContent>
             <Button asChild className="w-full">
-              <Link href="/digipeda/courses">View Courses</Link>
+              <Link href="#">Näytä kurssit</Link>
             </Button>
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>Tools</CardTitle>
-            <CardDescription>Educational tools and resources</CardDescription>
+            <CardTitle>Työkalut</CardTitle>
+            <CardDescription>Opetustyökalut ja resurssit</CardDescription>
           </CardHeader>
           <CardContent>
             <Button asChild className="w-full">
-              <Link href="/digipeda/tools">Explore Tools</Link>
+              <Link href="#">Tutustu työkaluihin</Link>
             </Button>
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>Support</CardTitle>
-            <CardDescription>Get help with digital tools</CardDescription>
+            <CardTitle>Tuki</CardTitle>
+            <CardDescription>Saa apua digityökalujen käyttöön</CardDescription>
           </CardHeader>
           <CardContent>
             <Button asChild className="w-full">
-              <Link href="/digipeda/support">Get Support</Link>
+              <Link href="/contact">Hanki tukea</Link>
             </Button>
           </CardContent>
         </Card>
