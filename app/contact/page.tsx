@@ -29,15 +29,15 @@ const supportCategories: SupportCategory[] = [
       {
         name: 'Matti Meikäläinen',
         role: 'Digitaalinen pedagogi',
-        email: 'matti.meikalainen@helsinki.fi',
-        phone: '+358 50 123 4567',
+        email: 'matti.person@helsinki.fi',
+        phone: '+358 12 34 4567',
         image: '/placeholder.svg?height=100&width=100'
       },
       {
         name: 'Liisa Lahtinen',
         role: 'IT-tukihenkilö',
-        email: 'liisa.lahtinen@helsinki.fi',
-        phone: '+358 50 987 6543',
+        email: 'liisa.person@helsinki.fi',
+        phone: '+358 12 34 4567',
         image: '/placeholder.svg?height=100&width=100'
       }
     ]
@@ -50,15 +50,15 @@ const supportCategories: SupportCategory[] = [
       {
         name: 'Anna Virtanen',
         role: 'Kansainvälisten asioiden koordinaattori',
-        email: 'anna.virtanen@helsinki.fi',
-        phone: '+358 50 246 8135',
+        email: 'anna.person@helsinki.fi',
+        phone: '+358 12 34 4567',
         image: '/placeholder.svg?height=100&width=100'
       },
       {
         name: 'Mikko Mäkinen',
         role: 'Vaihto-opiskelijakoordinaattori',
         email: 'mikko.makinen@helsinki.fi',
-        phone: '+358 50 753 9514',
+        phone: '+358 12 34 4567',
         image: '/placeholder.svg?height=100&width=100'
       }
     ]
@@ -71,15 +71,15 @@ const supportCategories: SupportCategory[] = [
       {
         name: 'Sari Salminen',
         role: 'Opintoneuvoja',
-        email: 'sari.salminen@helsinki.fi',
-        phone: '+358 50 369 2580',
+        email: 'sari.person@helsinki.fi',
+        phone: '+358 12 34 4567',
         image: '/placeholder.svg?height=100&width=100'
       },
       {
         name: 'Juha Järvinen',
         role: 'Opiskelijapalveluiden koordinaattori',
-        email: 'juha.jarvinen@helsinki.fi',
-        phone: '+358 50 147 2583',
+        email: 'juha.person@helsinki.fi',
+        phone: '+358 12 34 4567',
         image: '/placeholder.svg?height=100&width=100'
       }
     ]
